@@ -1,0 +1,28 @@
+{
+  "name": "gads2020-mws-weather",
+  "version": "1.0.0",
+  "description": "Smash It weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yannick243/gads2020-mws-weather.git"
+  },
+  "keywords": [
+    "google",
+    "andela",
+    "alc",
+    "gads2020",
+    "weather",
+    "Smash",
+    "It"
+  ],
+  "author": "Yannick  nsenga romeo <Yanromeo99@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yannick243/gads2020-mws-weather/issues"
+  },
+  "homepage": "https://github.com/Yannick243/gads2020-mws-weather#readme"
+}
