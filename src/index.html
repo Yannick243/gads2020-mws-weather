@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smash It - Weather</title>
+
     <!-- Loading third party fonts -->
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- css will be injected here by webpack -->
@@ -14,7 +17,22 @@
 </head>
 
 <body>
-
+    <div class="site-content">
+        <div class="hero">
+            <div class="container">
+                <form action="#" class="find-location">
+                    <input type="text" class="search" placeholder="Find location...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="weather-table">
+            <div class="container">
+                <div class="weather-container"></div>
+                <div class="row cities hidden"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- js will be injected here by webpack -->
 
