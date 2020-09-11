@@ -1,0 +1,98 @@
+{
+  "icons": [
+    {
+      "src": "icon_196x196.64fff7c4a03ed33c9b0028817393318d.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/android/icon_512x512.1faa32eb2e859aff97b0a36520c069d2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_384x384.9eba51150d002c1d7beac7031cff9f0b.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_256x256.f7862335f9946c40b27109dbcaed0cd6.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_192x192.5638c924090ada35bba4d28a8da11d4a.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_180x180.b41cd5fdfbcd5aadbc878844e41c6e99.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_144x144.26b74d9515646d27b4b808946162e796.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_96x96.3090c6c75a6bad342fde6b284c94e303.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_72x72.220c0dc443d6949d99e507c0c4c0acc1.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_48x48.092abe35f78f3d3615c8c266b1fe593d.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android/icon_36x36.1e4deaa8e60669c694a3589f87a5df80.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_1024x1024.286ee8d4e7e469f6bbe76eeb2e41cb1f.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_1024x1024.286ee8d4e7e469f6bbe76eeb2e41cb1f.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_180x180.b41cd5fdfbcd5aadbc878844e41c6e99.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_167x167.26f3dfb644c335eb653be7f9ef5be69d.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_152x152.5e54c5a7b64b6a164eff9e8a99182449.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/ios/icon_120x120.bed1bb93b6c8b24b8de39536dd82aef9.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    }
+  ],
+  "name": "Weather",
+  "short_name": "Weather",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Smash It - Weather App!",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}

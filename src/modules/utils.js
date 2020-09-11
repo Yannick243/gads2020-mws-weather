@@ -6,9 +6,11 @@ export function round(number) {
 export function addCity(cities, payload) {
   const index = cities.findIndex(c => c.city.id === payload.city.id);
 
-  if (index === -1) {
+  if (index > -1) {
+    cities[index] = payload;
+  } else {
     if (cities.length === 4) { cities.pop(); }
-    cities.push(payload);
+    cities.unshift(payload);
   }
   return cities;
 }

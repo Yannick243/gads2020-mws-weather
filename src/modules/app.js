@@ -34,9 +34,11 @@ export default class App {
 
   loadInitialCities() {
     const cities = loadFromLocalState();
+
     if (cities.length > 0) {
       this.localCities = cities;
       this.displayWeather(cities[0]);
+      this.displayLocalCities();
     }
   }
 
@@ -61,9 +63,11 @@ export default class App {
         "October",
         "November",
         "December"],
-      curMonth = months[dateObj.getMonth()],
+      month = dateObj.getMonth(),
+      curMonth = months[month],
       curYear = dateObj.getFullYear(),
-      dayOfWeek = weekDays[dateObj.getDay()],
+      day = dateObj.getDay(),
+      dayOfWeek = weekDays[day],
     domEnder = (function () {
       var a = dateObj;
       if (/1/.test(parseInt((a + "").charAt(0)))) return "th";
@@ -106,19 +110,21 @@ export default class App {
     try {
       const response = await this.weather.search(city);
       if (response && response.city) {
+        this.searchInput.value = '';
+
+        this.displayWeather(response);
 
         const cityPayload = {
           city: response.city,
           list: response.list,
         };
 
-        this.localCities = addCity(this.localCities, payload);
-
-        this.displayWeather(response);
+        this.localCities = addCity(this.localCities, cityPayload);
         saveToLocalState(cityPayload);
+        this.displayLocalCities();
       }
     } catch (error) {
-
+      console.log('error',error)
     } finally {
       this.searching = false
     }
@@ -151,8 +157,6 @@ export default class App {
 
     this.displayCurrent(city, current);
     this.displayRemaining(data);
-    this.displayLocalCities();
-
   }
 
   displayCurrent(city, weatherData) {
@@ -187,7 +191,7 @@ export default class App {
           <div class="degree">
               <div class="num">${round(main.temp)}<sup>o</sup>C</div>
               <div class="weather-icon">
-                  <img src="https://openweathermap.org/img/wn/${weatherItem.icon}@2x.png" alt="${weatherItem.main}" width="90">
+                  <img src="https://openweathermap.org/img/wn/${weatherItem.icon}@2x.png" alt="${weatherItem.main}">
               </div>
           </div>
           <span class="weather-wind">${windSpeed}</span>
@@ -232,47 +236,48 @@ export default class App {
 
   displayLocalCities() {
     const cities = this.localCities;
-    console.log('cities', cities)
+
     if (cities.length > 0) {
       this.citiesContainer.innerHTML = '';
       this.citiesContainer.classList.remove('hidden');
       cities.forEach((cityItem) => {
         const { city, list } = cityItem;
 
+        const firstWeatherData = list[0];
+
+        const wind = firstWeatherData.wind;
+
+        const windSpeed = `Wind Speed : ${(wind.speed * 3.6).toFixed(2)} km/h`;
+        const windDirection = `Wind Direction : ${degToCard(wind.deg)}`;
+
+        const { main, weather } = firstWeatherData;
+        const weatherItem = weather[0];
+
         const divElement = document.createElement("div");
 
         divElement.classList.add('column');
         divElement.innerHTML = `
-          <div class="card">
-              <h2>${ city.name}, ${city.country }</h2>
-              <h3>Wind 10km/h <span class="dot">•</span> Precip 0%</span></h3>
-              <h1>23°</h1>
+          <div class="card city" data-name="${ city.name}">
+              <h2 class="text-center w-100">${ city.name}, ${city.country }</h2>
+              <h3 class="text-center w-100">${windSpeed} <br> ${windDirection}</span></h3>
+              <h1>${round(main.temp)}°</h1>
               <div class="weather-icon">
-                  <img src="assets/images/icons/icon-1.svg" alt="" width="48">
+                  <img src="https://openweathermap.org/img/wn/${weatherItem.icon}@2x.png" alt="${weatherItem.main}" width="48">
               </div>
-              <table>
-                  <tr>
-                      <td>TUE</td>
-                      <td>WED</td>
-                      <td>THU</td>
-                  </tr>
-                  <tr>
-                      <td>30°</td>
-                      <td>34°</td>
-                      <td>36°</td>
-                  </tr>
-                  <tr>
-                      <td>17°</td>
-                      <td>22°</td>
-                      <td>19°</td>
-                  </tr>
-              </table>
           </div>`;
 
         this.citiesContainer.appendChild(divElement)
       });
-    }
 
+      const cityCard = document.querySelectorAll('.city')
+
+      for (let i = 0; i < cityCard.length; i++) {
+        const cityEl = cityCard[i];
+        cityEl.addEventListener("click", () => {
+          this.query(cityEl.dataset.name);
+        });
+      }
+    }
   }
 
 }
