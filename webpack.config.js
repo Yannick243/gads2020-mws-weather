@@ -7,6 +7,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // webpack plugin that generates a 'manifest.json' for our Progressive Web Application
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
+const workboxPlugin = require('workbox-webpack-plugin');
 module.exports = {
   node: {
     fs: "empty"
@@ -67,6 +68,9 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
       favicon: 'src/assets/images/icons/favicon-16x16.png'
+    }),
+    new workboxPlugin.InjectManifest({
+      swSrc: './src/sw.js',
     }),
     new WebpackPwaManifest({
       name: 'Weather',

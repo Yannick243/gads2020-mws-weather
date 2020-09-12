@@ -32,6 +32,7 @@ export default class App {
     this.searchButton.addEventListener("click", this.process.bind(this));
   }
 
+  // Initialize app with cities from localstorage
   loadInitialCities() {
     const cities = loadFromLocalState();
 
@@ -105,6 +106,7 @@ export default class App {
       }
   }
 
+  // Perform search
   async query(city) {
     this.searching = true
     try {
